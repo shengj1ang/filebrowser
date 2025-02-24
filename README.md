@@ -1,39 +1,26 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/filebrowser/logo/master/banner.png" width="550"/>
-</p>
+Fork info:
+支持生成视频缩略图的file browser.
+This fork implements generating video thumbnails.
 
-![Preview](https://user-images.githubusercontent.com/5447088/50716739-ebd26700-107a-11e9-9817-14230c53efd2.gif)
+Fork from: 
+https://github.com/cody82/filebrowser/tree/videopreview
+他已经做的足够好了，只是没有同步到最新版本，使用GitHub Action直接在线编译是很方便的。
+[直接下载编译好的文件](https://github.com/shengj1ang/filebrowser/releases/tag/202502240240)，windows解压后需要加上.exe的后缀
 
-[![Build](https://github.com/filebrowser/filebrowser/actions/workflows/main.yaml/badge.svg)](https://github.com/filebrowser/filebrowser/actions/workflows/main.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/filebrowser/filebrowser?style=flat-square)](https://goreportcard.com/report/github.com/filebrowser/filebrowser)
-[![Documentation](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](http://godoc.org/github.com/filebrowser/filebrowser)
-[![Version](https://img.shields.io/github/release/filebrowser/filebrowser.svg?style=flat-square)](https://github.com/filebrowser/filebrowser/releases/latest)
-[![Chat IRC](https://img.shields.io/badge/freenode-%23filebrowser-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23filebrowser)
+customaizations include:
+* Widely supports all operating systems, only requires the presence of ffmpeg, has been tested on macOS and Windows
+* Video thumbnails do not use cache to prevent excessive junk files, modern device performance is sufficient to support real-time thumbnail generation.
+* Use GitHub Action to generate releases
+* 广泛的支持所有操作系统，只需要ffmpeg的存在，已在macOS和windows下测试过
+* 视频缩略图不使用cache，防止垃圾文件过多，现代的设备性能足以支持实时生成缩略图。
+* 使用GitHub Action生成release
 
-filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.
+Modified files are:
 
-## Demo
+/http/preview.go
 
-url: https://demo.filebrowser.org/
+/frontend/src/components/files/ListingItem.vue
 
-credentials: `demo`/`demo`
+废话删了
 
-## Features
-
-Please refer to our docs at [https://filebrowser.org/features](https://filebrowser.org/features)
-
-## Install
-
-For installation instructions please refer to our docs at [https://filebrowser.org/installation](https://filebrowser.org/installation).
-
-## Configuration
-
-[Authentication Method](https://filebrowser.org/configuration/authentication-method) - You can change the way the user authenticates with the filebrowser server
-
-[Command Runner](https://filebrowser.org/configuration/command-runner) - The command runner is a feature that enables you to execute any shell command you want before or after a certain event.
-
-[Custom Branding](https://filebrowser.org/configuration/custom-branding) - You can customize your File Browser installation by change its name to any other you want, by adding a global custom style sheet and by using your own logotype if you want.
-
-## Contributing
-
-If you're interested in contributing to this project, our docs are best places to start [https://filebrowser.org/contributing](https://filebrowser.org/contributing).
+More Infomation: [https://github.com/filebrowser/filebrowser](https://github.com/filebrowser/filebrowser)
