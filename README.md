@@ -1,7 +1,7 @@
 Fork info:
 支持生成视频缩略图的file browser.
 This fork implements generating video thumbnails.
-
+![image](https://raw.githubusercontent.com/shengj1ang/filebrowser/refs/heads/master/Screen%20Shot%202025-02-24%20at%203.01.39%20AM.png)
 Fork from: 
 https://github.com/cody82/filebrowser/tree/videopreview
 他已经做的足够好了，只是没有同步到最新版本，使用GitHub Action直接在线编译是很方便的。
