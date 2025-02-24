@@ -1,7 +1,6 @@
 import { useAuthStore } from "@/stores/auth";
 import router from "@/router";
-import type { JwtPayload } from "jwt-decode";
-import { jwtDecode } from "jwt-decode";
+import { JwtPayload, jwtDecode } from "jwt-decode";
 import { baseURL, noAuth } from "./constants";
 import { StatusError } from "@/api/utils";
 
@@ -24,7 +23,7 @@ export async function validateLogin() {
       await renew(<string>localStorage.getItem("jwt"));
     }
   } catch (error) {
-    console.warn("Invalid JWT token in storage");
+    console.warn("Invalid JWT token in storage"); // eslint-disable-line
     throw error;
   }
 }
