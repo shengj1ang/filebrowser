@@ -271,8 +271,13 @@ const click = (event: Event | KeyboardEvent) => {
 };
 
 const open = () => {
-  router.push({ path: props.url });
+  if (props.isDir) {
+    router.push({ path: props.url });
+  } else {
+    window.open(props.url, "_blank");
+  }
 };
+
 
 const getExtension = (fileName: string): string => {
   const lastDotIndex = fileName.lastIndexOf(".");
