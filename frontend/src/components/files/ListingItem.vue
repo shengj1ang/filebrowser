@@ -224,22 +224,24 @@ const click = (event: Event | KeyboardEvent) => {
   if (!singleClick.value && fileStore.selectedCount !== 0)
     event.preventDefault();
 
-  setTimeout(() => {
-    touches.value = 0;
-  }, 400);
-
   touches.value++;
 
-   if (touches.value === 3) {
-    router.push({ path: props.url });
-    touches.value = 0;
-    return;
-  }
-  if (touches.value === 2) {
-    open();
-    return;
-  }
+  setTimeout(() => {
+    if (touches.value === 1) {
+      // 单击逻辑
+      handleSingleClick(event);
+    } else if (touches.value === 2) {
+      // 300ms 内没有第三次点击，执行双击
+      open();
+    } else if (touches.value === 3) {
+      // 400ms 内进行了三次点击，执行三连击逻辑
+      router.push({ path: props.url });
+    }
+    touches.value = 0; // 归零，防止误触
+  }, 300);
+};
 
+const handleSingleClick = (event: Event | KeyboardEvent) => {
   if (fileStore.selected.indexOf(props.index) !== -1) {
     fileStore.removeSelected(props.index);
     return;
@@ -276,6 +278,7 @@ const click = (event: Event | KeyboardEvent) => {
   }
   fileStore.selected.push(props.index);
 };
+
 
 const open = () => {
   if (props.isDir) {
