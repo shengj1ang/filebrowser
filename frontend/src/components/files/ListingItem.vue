@@ -226,11 +226,18 @@ const click = (event: Event | KeyboardEvent) => {
 
   setTimeout(() => {
     touches.value = 0;
-  }, 300);
+  }, 400);
 
   touches.value++;
-  if (touches.value > 1) {
+
+   if (touches.value === 3) {
+    router.push({ path: props.url });
+    touches.value = 0;
+    return;
+  }
+  if (touches.value === 2) {
     open();
+    return;
   }
 
   if (fileStore.selected.indexOf(props.index) !== -1) {
